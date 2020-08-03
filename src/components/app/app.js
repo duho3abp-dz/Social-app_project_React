@@ -15,6 +15,13 @@ import '../post-list-item/post-list-item.css'
 import '../post-add-form/post-add-form.css'
 
 const App = () => {
+
+    const data = [
+        {label: "Going to learn React!", important: true, id: 'aaa'},
+        {label: "That is so good", important: false, id: 'bbb'},
+        {label: "I need a break...", important: false, id: 'ccc'}
+    ];
+
     return (
         <div className="app">
             <AppHeader/>
@@ -22,7 +29,7 @@ const App = () => {
                 <SearchPanel/>
                 <PostStatusFilter/>
             </div>
-            <PostList/>
+            <PostList posts={data}/>
             <PostAddForm/>
         </div>
     )
