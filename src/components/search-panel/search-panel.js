@@ -1,5 +1,11 @@
 import React from 'react';
 
+// ------------- Style -------------
+
+import './search-panel.scss'
+
+// ------------- App -------------
+
 const SearchPanel = () => {
     return (
         <input 

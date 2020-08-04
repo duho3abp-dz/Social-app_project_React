@@ -1,5 +1,10 @@
 import React from 'react';
 
+// ------------- Style -------------
+
+import './post-list-item.scss'
+
+// ------------- App -------------
 
 class PostListItem extends React.Component{
     constructor (props){

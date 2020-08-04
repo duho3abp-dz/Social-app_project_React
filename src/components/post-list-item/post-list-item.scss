@@ -15,7 +15,7 @@
     outline: none;
 }
 .app-list-item .btn-star {
-    color: #FFD700;
+    color: #aeaeae;
 }
 .app-list-item .btn-trash {
     color: red;
@@ -39,6 +39,9 @@
   user-select: none;
   transition: 0.5s all;
 }
+.app-list-item.like .app-list-item-label {
+  color: rgb(236, 48, 48);
+}
 
 .app-list-item.like .fa-heart {
     opacity: 1;
@@ -50,5 +53,5 @@
 }
 
 .app-list-item.important .btn-star {
-    color: #aeaeae;
+  color: #FFD700;
 }
