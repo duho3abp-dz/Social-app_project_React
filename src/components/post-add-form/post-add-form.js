@@ -28,7 +28,7 @@ const FormBottomPanel = styled.form`
 
 // ------------- App -------------
 
-const PostAddForm = () => {
+const PostAddForm = ({onAdd}) => {
     return (
         <FormBottomPanel>
             <input
@@ -37,7 +37,12 @@ const PostAddForm = () => {
             />
             <button 
                 className="btn btn-outline-secondary"
-                type="submit">
+                type="submit"
+                onClick={(e) => {
+                    e.preventDefault();
+                    onAdd('ffff')
+                }}
+                >
                 Add
             </button>
         </FormBottomPanel>

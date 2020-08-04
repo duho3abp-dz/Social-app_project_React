@@ -40,14 +40,17 @@ const UlAppList = styled.ul`
 
 // ------------- App -------------
 
-const PostList = ({posts}) => {
+const PostList = ({posts, onDelete}) => {
 
     const elements = posts.map(post => {
         const {id, ...itemProps} = post;
 
         return (
             <li key={id}>
-                <PostListItem {...itemProps} />
+                <PostListItem 
+                {...itemProps}
+                onDelete={() => onDelete(id)}
+                />
             </li>
         )
     });

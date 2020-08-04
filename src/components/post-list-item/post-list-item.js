@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 // ------------- Style -------------
 
@@ -6,7 +6,7 @@ import './post-list-item.scss'
 
 // ------------- App -------------
 
-class PostListItem extends React.Component{
+export default class PostListItem extends Component{
     constructor (props){
         super(props);
         this.state = {
@@ -31,7 +31,7 @@ class PostListItem extends React.Component{
     }
     
     render () {
-        const {label} = this.props;
+        const {label, onDelete} = this.props;
         const {important, like} = this.state;
         let classNames = 'app-list-item d-flex justify-content-between';
 
@@ -56,6 +56,7 @@ class PostListItem extends React.Component{
                         <i className="fa fa-star"></i>
                     </button>
                     <button 
+                        onClick={onDelete}
                         type="button" 
                         className="btn-trash btn-sm">
                         <i className="fa fa-trash-o"></i>
@@ -66,5 +67,3 @@ class PostListItem extends React.Component{
         )
     }
 }
-
-export default PostListItem;
