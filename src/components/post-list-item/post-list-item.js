@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 // ------------- Style -------------
 
-import './post-list-item.scss'
+import './post-list-item.scss';
 
 // ------------- App -------------
 
@@ -21,13 +21,14 @@ export default class PostListItem extends Component{
     onImportant() {
         this.setState(({important}) => ({
             important: !important
-        }))
+        }));
     }
 
     onLike() {
+        this.props.onToggleLiked()
         this.setState(({like}) => ({
             like: !like
-        }))
+        }));
     }
     
     render () {

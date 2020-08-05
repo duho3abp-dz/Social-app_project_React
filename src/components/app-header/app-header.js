@@ -17,13 +17,14 @@ const DivHeader = styled.div`
         color: grey;
     }
 `
+
 // ------------- App -------------
 
-const AppHeader = () => {
+const AppHeader = ({posts = 0, like = 0}) => {
     return (
         <DivHeader>
             <h1>Zhidkov Danila</h1>
-            <h2>5 posts, liked 0</h2>
+            <h2>{posts.length} posts, liked {like.length}</h2>
         </DivHeader>
     )
 }

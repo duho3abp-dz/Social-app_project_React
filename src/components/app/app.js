@@ -25,11 +25,13 @@ export default class App extends Component{
                 {label: "Going to learn React!", important: true, id: 1},
                 {label: "That is so good", important: false, id: 2},
                 {label: "I need a break...", important: false, id: 3}
-            ].filter(item => item.id)
+            ].filter(item => item.id),
+            like: []
         }
 
         this.deleteItem = this.deleteItem.bind(this);
         this.AddItem = this.AddItem.bind(this);
+        this.onToggleLiked = this.onToggleLiked.bind(this);
     }
 
     deleteItem(id) {
@@ -38,8 +40,7 @@ export default class App extends Component{
         }))
     }
 
-    AddItem(text) {
-        
+    AddItem(text) { 
         const obj = {label: text, important: false, id: this.state.maxId},
               newArr = [...this.state.data, obj];
 
@@ -49,12 +50,42 @@ export default class App extends Component{
         }))
     }
 
+    // onToggleImportant(id) {
+    //     console.log('important');
+    // }
+
+    onToggleLiked(id) {
+        const {like} = this.state;
+        const test = like.filter(item => item === id);
+
+        if (Boolean(...test)) {
+            this.setState(({like}) => ({
+                like: like.filter(item => item !== id)
+            }));
+        } else {
+
+            if (like.length > 0) {
+                this.setState(({like}) => ({
+                    like: [...like, id]
+                }));
+            } else {
+                this.setState(({like}) => ({
+                    like: [id]
+                }));
+            }
+
+        }
+    }
+
     render() {
-        const {data} = this.state;
+        const {data, like} = this.state;
 
         return (
             <DivApp>
-                <AppHeader/>
+                <AppHeader 
+                    posts={data}
+                    like={like}
+                />
                 <div className="search-panel d-flex">
                     <SearchPanel/>
                     <PostStatusFilter/>
@@ -62,6 +93,8 @@ export default class App extends Component{
                 <PostList 
                     posts={data}
                     onDelete={this.deleteItem}
+                    // onToggleImportant={this.onToggleImportant}
+                    onToggleLiked={this.onToggleLiked}
                 />
                 <PostAddForm
                     onAdd={this.AddItem}
