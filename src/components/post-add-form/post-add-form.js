@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 
 // ------------- Style -------------
@@ -28,25 +28,47 @@ const FormBottomPanel = styled.form`
 
 // ------------- App -------------
 
-const PostAddForm = ({onAdd}) => {
-    return (
-        <FormBottomPanel>
-            <input
-                type="text"
-                placeholder="What are you thinking now?"
-            />
-            <button 
-                className="btn btn-outline-secondary"
-                type="submit"
-                onClick={(e) => {
-                    e.preventDefault();
-                    onAdd('ffff')
-                }}
-                >
-                Add
-            </button>
-        </FormBottomPanel>
-    )
-}
+export default class PostAddForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: ''
+        }
 
-export default PostAddForm;
+        this.onValueChange = this.onValueChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    onValueChange(e) {
+        this.setState({text: e.target.value});
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+
+        const {onAdd} = this.props,
+              {text} = this.state;
+
+        if (text !== '') {onAdd(text)}
+        this.setState({text: ''});
+    }
+
+    render() {
+        return (
+            <FormBottomPanel onSubmit={this.onSubmit}>
+                <input
+                    type="text"
+                    placeholder="What are you thinking now?"
+                    onChange={this.onValueChange}
+                    value={this.state.text}
+                />
+                <button 
+                    className="btn btn-outline-secondary"
+                    type="submit"
+                    >
+                    Add
+                </button>
+            </FormBottomPanel>
+        )
+    }
+}
