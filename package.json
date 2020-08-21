@@ -7,12 +7,18 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.5.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "jest-extended": "^0.11.5",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "react-test-renderer": "^16.13.1",
     "reactstrap": "^8.5.1",
-    "styled-components": "^5.1.1"
+    "serialize-javascript": "^4.0.0",
+    "styled-components": "^5.1.1",
+    "yargs-parser": "^19.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -40,7 +40,7 @@ const UlAppList = styled.ul`
 
 // ------------- App -------------
 
-const PostList = ({posts, onDelete, onToggleImportant, onToggleLiked, important, liked}) => {
+const PostList = ({posts, onDelete, onToggleImportant, onToggleLiked}) => {
 
     const elements = posts.map(post => {
         const {id, ...itemProps} = post;
